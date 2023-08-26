@@ -9,10 +9,11 @@ I've included a tool that uses pandas and the provided CSV files to efficiently 
 1. [Install docker](https://docs.docker.com/get-docker/)
 2. *Optional: to add new files to the database, run data_model_creator.py*
 3. *Optional: configure the PostgreSQL credentials within the docker-compose.yml file.*
-4. Run docker-compose.yml
-5. Open http://localhost:3000 to run metabase
-6. Create a local account setting username and password
-7. Connect to the database by entering details. Default:
+4. Navigate to the repository root in your terminal.
+5. Run docker-compose (to exectue docker-compose.yml)
+6. Open http://localhost:3000 to run metabase
+7. Create a local account setting username and password
+8. Connect to the database by entering details. Default:
     - *Select PostgreSQL*
     - *Pick a display name*
     - *Host*: postgres_service
@@ -26,6 +27,10 @@ I've included a tool that uses pandas and the provided CSV files to efficiently 
 - Docker
 - python 3.8
     - pandas 1.6
-## Docker Images:
+### Docker Images:
  - metabase/metabase:latest
  - postgres:latest
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
