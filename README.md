@@ -1,13 +1,18 @@
 # Metabase Cloud Dashboard:
-This repo is an adapted version of the original Cloud Dashbaord, where the metabase dashbord ran on an AWS EC2 instance with a SQL database on Amazon RDS. Since I can't afford keeping them online at the moment, I adapted the project to run on a local machine. In this repo, the database runs in a psql docker container and the dashbaord in a metabase docker container.
-This version represents the infrastructure and does not include the dashboard. Although, queries are provided, that can be used to create a dashboard.
+This repository is a modified version of the original Cloud Dashboard project. Initially, the Metabase dashboard ran on an AWS EC2 instance, while the SQL database ran on Amazon RDS. Due to budget constraints, I've adapted the project to run locally.
+
+Within this repo, the database runs in a psql Docker container, and the dashboard in a Metabase Docker container. This version primarily showcases the infrastructure and does not include the dashboard. However, I've added queries that were used to create the dashboard in the original version.
+
+I've included a tool that uses pandas and the provided CSV files to efficiently construct the SQL data model. It simplifies the process of adding more CSV files to the database or even lets you create your own database and dashboard based using a different set of csv files.
 
 ## Usage
 1. [Install docker](https://docs.docker.com/get-docker/)
-2. run docker-compose.yml
-3. Open http://localhost:3000 to run metabase
-4. Create a local account setting username and password
-5. Connect to the database by entering the containerized datababases details:
+2. *Optional: to add new files to the database, run data_model_creator.py*
+3. *Optional: configure the PostgreSQL credentials within the docker-compose.yml file.*
+4. Run docker-compose.yml
+5. Open http://localhost:3000 to run metabase
+6. Create a local account setting username and password
+7. Connect to the database by entering details. Default:
     - *Select PostgreSQL*
     - *Pick a display name*
     - *Host*: postgres_service
@@ -16,7 +21,6 @@ This version represents the infrastructure and does not include the dashboard. A
     - *Username*: postgres
     - *Password*: supersavepassword1234
     - and click connect database
-
 
 ## Requirements
 - Docker
