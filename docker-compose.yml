@@ -1,0 +1,33 @@
+
+version: '3.0'
+
+services:
+  postgres_service:
+    image: postgres:latest
+    container_name: NW_postgres
+    environment:
+      POSTGRES_DB: northwind_database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: supersavepassword1234
+    volumes:
+      - ./database/data_model.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./database/data/:/data/
+    ports:
+      - 5555:5432
+    
+
+  metabase:
+    image: metabase/metabase:latest
+    ports:
+      - 3000:3000
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: northwind_database
+      MB_DB_PORT: 5432
+      MB_DB_USER: postgres
+      MB_DB_PASS: supersavepassword!1234
+      MB_DB_HOST: postgres_service
+    volumes:
+      - ./dashboard/:/dashboard/
+    depends_on:
+      - postgres_service
